@@ -1,0 +1,16 @@
+{
+  "name": "dneustadt/dne-custom-js-css",
+  "keywords": ["custom", "css", "less", "js", "javascript", "theme", "assets", "shopware", "shopware-plugin"],
+  "description": "Manage custom JavaScript and CSS/LESS in Shopware",
+  "license": "MIT",
+  "type": "shopware-plugin",
+  "extra": {
+    "installer-name": "DneCustomJsCss"
+  },
+  "require": {
+    "composer/installers": "~1.0"
+  },
+  "scripts": {
+    "test": "phpunit -c tests"
+  }
+}

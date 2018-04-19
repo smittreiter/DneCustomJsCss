@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../engine/Shopware/Components/Plugin/schema/menu.xsd">
+    <entries>
+        <entry>
+            <name>Custom JavaScript/Css</name>
+            <label lang="en">Custom JavaScript/CSS</label>
+            <label lang="de">Custom JavaScript/CSS</label>
+            <controller>DneCustomJsCss</controller>
+            <action>index</action>
+            <class>sprite-keyboard-command misc--shortcuts</class>
+            <parent identifiedBy="controller">ConfigurationMenu</parent>
+        </entry>
+    </entries>
+</menu>

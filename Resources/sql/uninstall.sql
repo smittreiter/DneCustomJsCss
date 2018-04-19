@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS `dne_custom_js_css`;

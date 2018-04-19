@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="dne_custom_js_css.subscriber.template_registration" class="DneCustomJsCss\Subscriber\TemplateRegistration">
+            <argument>%dne_custom_js_css.plugin_dir%</argument>
+            <argument type="service" id="template"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="dne_custom_js_css.js_compressor"
+                 class="DneCustomJsCss\Services\CompressorDecorator"
+                 decorates="js_compressor"
+                 public="false">
+            <argument type="service" id="dne_custom_js_css.js_compressor.inner"/>
+            <argument type="service" id="dbal_connection" />
+        </service>
+        <service id="dne_custom_js_css.less_compiler"
+                 class="DneCustomJsCss\Services\LessCompilerDecorator"
+                 decorates="less_compiler"
+                 public="false">
+            <argument type="service" id="dne_custom_js_css.less_compiler.inner"/>
+            <argument type="service" id="oyejorge_compiler_lib" />
+            <argument type="service" id="dbal_connection" />
+        </service>
+    </services>
+</container>
