@@ -2,7 +2,6 @@
 
 namespace DneCustomJsCss\Services;
 
-use Shopware\Components\ShopwareReleaseStruct;
 use Shopware\Components\Theme\Compiler;
 use Shopware\Components\Theme\Compressor\CompressorInterface;
 use Shopware\Components\Theme\Inheritance;
@@ -39,7 +38,7 @@ class ThemeCompiler extends Compiler
         CompressorInterface $jsCompressor,
         \Enlight_Event_EventManager $eventManager,
         TimestampPersistor $timestampPersistor,
-        ShopwareReleaseStruct $release
+        $release = null
     ) {
         $this->compressor = $jsCompressor;
         $this->lessCompiler = $compiler;
