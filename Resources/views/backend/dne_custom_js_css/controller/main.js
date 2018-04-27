@@ -19,7 +19,7 @@ Ext.define('Shopware.apps.DneCustomJsCss.controller.Main', {
 
         me.getStore('JsCss').load({
             scope: this,
-            callback: function(records, operation, success) {
+            callback: function() {
                 me.mainWindow = me.getView('main.Window').create({
                     mainStore: me.getStore('JsCss'),
                     record: Ext.create('Shopware.apps.DneCustomJsCss.model.JsCss')
@@ -29,22 +29,22 @@ Ext.define('Shopware.apps.DneCustomJsCss.controller.Main', {
 
         me.callParent(arguments);
         me.control({
-            'custom-js-css-detail button[action=save]' : {
+            'custom-js-css-detail button[action=save]': {
                 'click' : function(btn) {
                     this.onSave(btn);
                 }
             },
-            'custom-js-css-detail button[action=saveCompile]' : {
+            'custom-js-css-detail button[action=saveCompile]': {
                 'click' : function(btn) {
                     this.onSaveCompile(btn);
                 }
             },
-            'custom-js-css-detail button[action=reset]' : {
+            'custom-js-css-detail button[action=reset]': {
                 'click' : function(btn) {
                     this.onReset(btn);
                 }
             },
-            'custom-js-css-list button[action=addJs]' : {
+            'custom-js-css-list button[action=addJs]': {
                 'click' : function (btn) {
                     this.addJs(btn);
                 }
@@ -65,13 +65,14 @@ Ext.define('Shopware.apps.DneCustomJsCss.controller.Main', {
     },
 
     onSave: function(btn) {
-        var win     = btn.up('window'), 
-        form    = win.down('form'), 
-        formBasis = form.getForm(), 
-        me      = this,             
-        store   = me.getStore('JsCss'),
-        record  = form.getRecord();  
-        if (!(record instanceof Ext.data.Model)){
+        var win = btn.up('window'),
+            form = win.down('form'),
+            formBasis = form.getForm(),
+            me = this,
+            store = me.getStore('JsCss'),
+            record = form.getRecord();
+
+        if (!(record instanceof Ext.data.Model)) {
             record = Ext.create('Shopware.apps.DneCustomJsCss.model.JsCss');
         }
         
@@ -100,12 +101,10 @@ Ext.define('Shopware.apps.DneCustomJsCss.controller.Main', {
     },
 
     onReset: function(btn) {
-        var win     = btn.up('window'), 
-        form    = win.down('form'), 
-        formBasis = form.getForm(), 
-        me      = this,             
-        store   = me.getStore('JsCss'),
-        record  = form.getRecord();  
+        var win = btn.up('window'),
+            form = win.down('form'),
+            record = form.getRecord();
+
         if (!(record instanceof Ext.data.Model)){
             record = Ext.create('Shopware.apps.DneCustomJsCss.model.JsCss');
         }
@@ -113,53 +112,61 @@ Ext.define('Shopware.apps.DneCustomJsCss.controller.Main', {
         form.loadRecord(record);
     },
 
-    openJsDetail:function (view, rowIndex) {
+    openJsDetail: function(view, rowIndex) {
         var me = this,
-        record = me.getStore('JsCss').getAt(rowIndex);
+            record = me.getStore('JsCss').getAt(rowIndex);
+
         me.record = record;
+
         me.detailStore = new Ext.data.Store({
             extend:'Ext.data.Store',
             remoteFilter : true,
             model:'Shopware.apps.DneCustomJsCss.model.JsCss'
         });
+
         me.detailStore.load({
-            params : {
+            params: {
                 id: record.get("id")
             },
             callback: function(records, operation) {
                 if (operation.success !== true || !records.length) {
                     return;
                 }
+
                 me.detailRecord = records[0];
+
                 var win = view.up('window'), 
-                form = win.down('form');
+                    form = win.down('form');
+
                 form.loadRecord(me.detailRecord);
             }
         });     
         
     },
 
-    addJs:function (btn) {
+    addJs: function (btn) {
         var me = this,
-        win = btn.up('window'), 
-        form = win.down('form');   
+            win = btn.up('window'),
+            form = win.down('form');
+
         me.detailRecord = Ext.create('Shopware.apps.DneCustomJsCss.model.JsCss');
+
         form.loadRecord(me.detailRecord);
     },
 
-    deleteJs: function (view, rowIndex) {
+    deleteJs: function(view, rowIndex) {
         var me = this,
-        store = me.getStore('JsCss'),
-        record = store.getAt(rowIndex);
-        me.record = record;
+            store = me.getStore('JsCss');
+
+        me.record = store.getAt(rowIndex);
 
         if (me.record instanceof Ext.data.Model && me.record.get('id') > 0) {
-            Ext.MessageBox.confirm('Js löschen?', '{s name="jsDeleteAlert"}Sind Sie sicher, dass Sie das JavaScript/CSS löschen wollen?{/s}' , function (response) {
-                if ( response !== 'yes' ) {
+            Ext.MessageBox.confirm('{s name="delete"}Löschen{/s}', '{s name="jsDeleteAlert"}Sind Sie sicher, dass Sie das JavaScript/CSS löschen wollen?{/s}' , function (response) {
+                if (response !== 'yes') {
                     return;
                 }
                 me.record.destroy({
-                    callback: function(operation) {
+                    callback: function() {
                         Shopware.Msg.createGrowlMessage('','{s name="jsDeleted"}JavaScript/CSS wurde erfolgreich gelöscht{/s}', 'CustomJsCss');
                         store.load();
                         var win = view.up('window'), 

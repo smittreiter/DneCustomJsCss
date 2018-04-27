@@ -7,12 +7,12 @@ Ext.define('Shopware.apps.DneCustomJsCss.view.main.List', {
     region:'center',
     autoScroll:true,
     listeners: {
-        itemclick: function(dv, record, item, rowIndex, e) {
+        itemclick: function(dv, record, item, rowIndex) {
             var me = this;
             me.fireEvent('openJsDetail', me, rowIndex);
         }
     },
-    initComponent:function () {
+    initComponent: function() {
         var me = this;
         me.registerEvents();
         me.columns = me.getColumns();
@@ -27,12 +27,12 @@ Ext.define('Shopware.apps.DneCustomJsCss.view.main.List', {
         ];
         me.callParent(arguments);
     },
-    registerEvents:function () {
+    registerEvents: function() {
         this.addEvents(
             );
         return true;
     },
-    getColumns:function () {
+    getColumns: function() {
         var me = this;
         return [
             {
@@ -59,10 +59,10 @@ Ext.define('Shopware.apps.DneCustomJsCss.view.main.List', {
         var me = this;
         return [
             {
-                text    : '{s name="add"}Hinzufügen{/s}',
-                scope   : me,
-                iconCls : 'sprite-plus-circle-frame',
-                action : 'addJs'
+                text: '{s name="add"}Hinzufügen{/s}',
+                scope: me,
+                iconCls: 'sprite-plus-circle-frame',
+                action: 'addJs'
             }
         ];
     },

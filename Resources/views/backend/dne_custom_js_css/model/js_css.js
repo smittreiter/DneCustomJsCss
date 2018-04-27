@@ -1,6 +1,6 @@
 Ext.define('Shopware.apps.DneCustomJsCss.model.JsCss', {
-    extend : 'Ext.data.Model', 
-    fields : [ 
+    extend: 'Ext.data.Model',
+    fields: [
         {
             name: 'id', 
             type: 'integer',
@@ -29,14 +29,14 @@ Ext.define('Shopware.apps.DneCustomJsCss.model.JsCss', {
         },
     ],
     proxy: {
-        type : 'ajax', 
-        api:{
+        type: 'ajax',
+        api: {
             read : '{url action=list}',
             create : '{url action="create"}',
             update : '{url action="update"}',
             destroy : '{url action="delete"}'
         },
-        reader : {
+        reader: {
             type : 'json',
             root : 'data',
             totalProperty: 'totalCount'

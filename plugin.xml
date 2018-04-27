@@ -6,7 +6,7 @@
     <version>1.0.0</version>
     <link>https://www.davidneustadt.de</link>
     <author>David Neustadt</author>
-    <compatibility minVersion="5.2.0" />
+    <compatibility minVersion="5.2.27" />
 
     <changelog version="1.0.0">
         <changes lang="de">Initial release</changes>
