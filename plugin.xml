@@ -9,8 +9,8 @@
     <compatibility minVersion="5.6.0" />
 
     <changelog version="1.1.0">
-        <changes lang="de">LESS Syntax Hightlighting für ACE Editor ab Shopware 5.6</changes>
-        <changes lang="en">LESS syntax hightlighting for ACE Editor since Shopware 5.6</changes>
+        <changes lang="de">LESS Syntax Highlighting für ACE Editor ab Shopware 5.6</changes>
+        <changes lang="en">LESS syntax highlighting for ACE Editor since Shopware 5.6</changes>
     </changelog>
     <changelog version="1.0.0">
         <changes lang="de">Initial release</changes>
