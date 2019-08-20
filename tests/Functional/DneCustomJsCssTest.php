@@ -1,6 +1,6 @@
 <?php
 
-class DneCustomJsCssTest extends Enlight_Components_Test_Controller_TestCase
+class DneCustomJsCssTest extends PHPUnit\Framework\TestCase
 {
     /**
      * @var \Shopware\Components\Theme\Compiler
@@ -32,7 +32,7 @@ class DneCustomJsCssTest extends Enlight_Components_Test_Controller_TestCase
      */
     private $testKey;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
