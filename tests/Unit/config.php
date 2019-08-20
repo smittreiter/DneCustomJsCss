@@ -8,6 +8,7 @@ return array_merge($this->loadConfig($this->AppPath() . 'Configs/Default.php'), 
     ],
     'errorHandler' => [
         'throwOnRecoverableError' => true,
+        'ignoredExceptionClasses' => [],
     ],
     'session' => [
         'unitTestEnabled' => true,
