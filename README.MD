@@ -2,9 +2,12 @@ Custom JavaScript And CSS/LESS Containers
 =====
 [![Scrutinizer](https://scrutinizer-ci.com/g/dneustadt/DneCustomJsCss/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dneustadt/DneCustomJsCss/?branch=master)
 [![Travis CI](https://travis-ci.org/dneustadt/DneCustomJsCss.svg?branch=master)](https://travis-ci.org/dneustadt/DneCustomJsCss)
+[![Donate](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=88UMDD53QSYK6&source=url)
 
 This plugin for [Shopware](https://www.shopware.de) features a backend container manager to easily add custom
 JavaScript and/or CSS/LESS to the theme compilation.
+
+_If you want to buy me a cup of coffee or support the development of this free extension, feel free to donate :)_
 
 ![DneCustomJsCss](https://github.com/dneustadt/DneCustomJsCss/blob/master/preview.png)
 
@@ -18,7 +21,11 @@ The plugin offers the following features:
 
 Requirements
 -----
-* Shopware >= 5.2.27
+1.1.0
+* Shopware >= 5.6
+
+1.0.0
+* Shopware >= 5.2.27 _see releases_
 
 Installation
 ====

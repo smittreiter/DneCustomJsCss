@@ -3,11 +3,15 @@
     <label lang="de">Custom JavaScript/CSS</label>
     <label lang="en">Custom JavaScript/CSS</label>
 
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <link>https://www.davidneustadt.de</link>
     <author>David Neustadt</author>
-    <compatibility minVersion="5.2.27" />
+    <compatibility minVersion="5.6.0" />
 
+    <changelog version="1.1.0">
+        <changes lang="de">LESS Syntax Hightlighting für ACE Editor ab Shopware 5.6</changes>
+        <changes lang="en">LESS syntax hightlighting for ACE Editor since Shopware 5.6</changes>
+    </changelog>
     <changelog version="1.0.0">
         <changes lang="de">Initial release</changes>
         <changes lang="en">Initial release</changes>

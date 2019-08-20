@@ -32,7 +32,7 @@ Ext.define('Shopware.apps.DneCustomJsCss.view.main.Detail', {
     
         me.jsField = Ext.create('Shopware.form.field.CodeMirror', {
             fieldLabel: '{s name="jsFieldLabel"}JavaScript{/s}',
-            xtype: 'codemirrorfield',
+            xtype: 'ace-editor',
             mode: 'javascript',
             labelAlign: 'top',
             anchor: '100%',
@@ -43,26 +43,13 @@ Ext.define('Shopware.apps.DneCustomJsCss.view.main.Detail', {
 
         me.cssField = Ext.create('Shopware.form.field.CodeMirror', {
             fieldLabel: '{s name="cssFieldLabel"}CSS/LESS{/s}',
-            xtype: 'codemirrorfield',
-            mode: 'css',
+            xtype: 'ace-editor',
+            mode: 'less',
             labelAlign: 'top',
             anchor: '100%',
             name: 'css',
             flex: 1,
             allowBlank: true
-        });
-
-        me.on('resize', function(cmp, width, height) {
-            me.resizeEditor(cmp, cmp.jsField, width, height);
-            me.resizeEditor(cmp, cmp.cssField, width, height);
-        });
-
-        me.jsField.on('editorready', function() {
-            me.resizeEditor(me, me.jsField, me.getWidth(), me.getHeight());
-        });
-
-        me.cssField.on('editorready', function() {
-            me.resizeEditor(me, me.cssField, me.getWidth(), me.getHeight());
         });
         
         me.items = me.getItems();
@@ -119,22 +106,6 @@ Ext.define('Shopware.apps.DneCustomJsCss.view.main.Detail', {
                 formBind: true
             }
         ];
-    },
-
-    resizeEditor: function(cmp, editorField, width, height) {
-        var editor = editorField.editor;
-
-        if(!editor || !editor.hasOwnProperty('display')) {
-            return false;
-        }
-
-        editor.setSize(0, 0);
-
-        width = editorField.getEl().down('tbody').getWidth();
-        height = (height / 2) - 150;
-
-        editor.setSize(width, height);
-        editor.display.scroller.style.height = height + 'px';
     },
 
     /**

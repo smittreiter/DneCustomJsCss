@@ -28,6 +28,17 @@ Ext.define('Shopware.apps.DneCustomJsCss.view.main.Window', {
                         xtype: 'custom-js-css-detail',
                         record: me.record,
                         flex: 1
+                    },
+                    {
+                        region: 'south',
+                        xtype: 'button',
+                        text: '{s name="support"}{/s} ☕',
+                        handler: function() {
+                            var win = window.open('about:blank', '');
+
+                            win.location = 'https://github.com/dneustadt/DneCustomJsCss/blob/master/README.MD';
+                            win.focus();
+                        }
                     }
                 ]
             })
