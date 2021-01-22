@@ -4,11 +4,7 @@ namespace DneCustomJsCss\Services;
 
 use Shopware\Components\Theme\Compiler;
 use Shopware\Components\Theme\Compressor\CompressorInterface;
-use Shopware\Components\Theme\Inheritance;
 use Shopware\Components\Theme\LessCompiler;
-use Shopware\Components\Theme\PathResolver;
-use Shopware\Components\Theme\Service;
-use Shopware\Components\Theme\TimestampPersistor;
 use Shopware\Models\Shop\Shop;
 use Shopware\Models\Shop\Template;
 
@@ -29,21 +25,20 @@ class ThemeCompiler extends Compiler
      *
      * {@inheritdoc}
      */
-    public function __construct(
-        $rootDir,
-        LessCompiler $compiler,
-        PathResolver $pathResolver,
-        Inheritance $inheritance,
-        Service $service,
-        CompressorInterface $jsCompressor,
-        \Enlight_Event_EventManager $eventManager,
-        TimestampPersistor $timestampPersistor,
-        $release = null
-    ) {
-        $this->compressor = $jsCompressor;
-        $this->lessCompiler = $compiler;
+    public function __construct()
+    {
+        $args = func_get_args();
 
-        parent::__construct(...func_get_args());
+        foreach ($args as $arg) {
+            if ($arg instanceof CompressorInterface) {
+                $this->compressor = $arg;
+            }
+            if ($arg instanceof LessCompiler) {
+                $this->lessCompiler = $arg;
+            }
+        }
+
+        parent::__construct(...$args);
     }
 
     /**
