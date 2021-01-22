@@ -5,7 +5,10 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="dne_custom_js_css.subscriber.template_registration" class="DneCustomJsCss\Subscriber\TemplateRegistration">
+        <service id="dne_custom_js_css.subscriber.template_registration"
+                 class="DneCustomJsCss\Subscriber\TemplateRegistration"
+                 public="true"
+        >
             <argument>%dne_custom_js_css.plugin_dir%</argument>
             <argument type="service" id="template"/>
             <tag name="shopware.event_subscriber"/>
