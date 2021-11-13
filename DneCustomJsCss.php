@@ -34,7 +34,7 @@ class DneCustomJsCss extends Plugin
     {
         $sql = file_get_contents($this->getPath() . '/Resources/sql/install.sql');
 
-        $this->container->get('shopware.db')->query($sql, [$context->getPlugin()->getId()]);
+        $this->container->get('shopware.db')->query($sql);
     }
 
     /**

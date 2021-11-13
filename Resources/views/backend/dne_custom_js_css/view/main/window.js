@@ -32,7 +32,7 @@ Ext.define('Shopware.apps.DneCustomJsCss.view.main.Window', {
                     {
                         region: 'south',
                         xtype: 'button',
-                        text: '{s name="support"}{/s} ☕',
+                        text: '{s name="support"}{/s}',
                         handler: function() {
                             var win = window.open('about:blank', '');
 
